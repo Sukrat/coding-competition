@@ -1,5 +1,5 @@
 #vscode
 .vscode/
-.class
-.exe
+*.class
+*.exe
 bin/
