@@ -3,3 +3,11 @@
 *.class
 *.exe
 bin/
+
+# java project ignore
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
