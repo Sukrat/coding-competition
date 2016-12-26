@@ -1,7 +1,7 @@
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class Sample {
+public class JavaArea {
 
     public static class Solver {
         private Scanner read;
@@ -14,7 +14,6 @@ public class Sample {
 
         public void solve() {
             //solution
-            write.println("Work here");
         }
     }
 
