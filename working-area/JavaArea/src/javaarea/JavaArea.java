@@ -1,4 +1,6 @@
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class JavaArea {
@@ -14,6 +16,8 @@ public class JavaArea {
 
         public void solve() {
             //solution
+            ArrayList list = new ArrayList();
+            list.add(1);list.add(2);list.add(3);
         }
     }
 
