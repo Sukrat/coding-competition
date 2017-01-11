@@ -56,18 +56,18 @@ public class BinarySearchTreeTest {
     }
 
     private List<BSTValue> createList() {
-        List<BSTValue> bstList = new ArrayList<>();
-        bstList.add(new BSTValue(37));
-        bstList.add(new BSTValue(24));
-        bstList.add(new BSTValue(42));
-        bstList.add(new BSTValue(35));
-        bstList.add(new BSTValue(32));
-        bstList.add(new BSTValue(7));
-        bstList.add(new BSTValue(2));
-        bstList.add(new BSTValue(42));
-        bstList.add(new BSTValue(120));
-        bstList.add(new BSTValue(40));
-        return bstList;
+        List<BSTValue> list = new ArrayList<>();
+        list.add(new BSTValue(37));
+        list.add(new BSTValue(24));
+        list.add(new BSTValue(42));
+        list.add(new BSTValue(35));
+        list.add(new BSTValue(32));
+        list.add(new BSTValue(7));
+        list.add(new BSTValue(2));
+        list.add(new BSTValue(42));
+        list.add(new BSTValue(120));
+        list.add(new BSTValue(40));
+        return list;
     }
 
 }
