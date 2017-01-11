@@ -4,6 +4,7 @@ import datastructures.trees.IBinNode;
 import datastructures.trees.LinkBinNode;
 import datastructures.trees.Traversal;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -28,15 +29,15 @@ public class TreeTest {
 
     @Test
     public void testTraversal() {
-        String[] values = new String[] { "a", "b", "c", "d", null, "e", "f", null, null, null, null, "g", null, "h",
-                "i" };
+        String[] values = new String[]{"a", "b", "c", "d", null, "e", "f", null, null, null, null, "g", null, "h",
+            "i"};
         IBinNode root = createTree(values);
-        String preOrderTraversal = Traversal.preOrderTraversal(root);
-        String postOrderTraversal = Traversal.postOrderTraversal(root);
-        String inOrderTraversal = Traversal.inOrderTraversal(root);
-        assertEquals("Pre order failed", "abdcegfhi", preOrderTraversal);
-        assertEquals("Post order failed", "dbgehifca", postOrderTraversal);
-        assertEquals("In order failed", "dbagechfi", inOrderTraversal);
+        List<String> preOrderTraversal = Traversal.preOrderTraversal(root);
+        List<String> postOrderTraversal = Traversal.postOrderTraversal(root);
+        List<String> inOrderTraversal = Traversal.inOrderTraversal(root);
+        assertEquals("Pre order failed", "[a, b, d, c, e, g, f, h, i]", preOrderTraversal.toString());
+        assertEquals("Post order failed", "[d, b, g, e, h, i, f, c, a]", postOrderTraversal.toString());
+        assertEquals("In order failed", "[d, b, a, g, e, c, h, f, i]", inOrderTraversal.toString());
     }
 
     private IBinNode createTree(Object[] values) {

@@ -16,6 +16,7 @@ import static org.junit.Assert.*;
 import datastructures.trees.HuffmanTree.HuffmanNode;
 import datastructures.trees.IBinNode;
 import datastructures.trees.Traversal;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,7 +41,11 @@ public class HuffmanTreeTest {
     public void testHuffmanTree() throws Exception {
         List<HuffmanNode> list = createList();
         IBinNode<HuffmanNode> root = HuffmanTree.createHuffmanTree(list);
-        assertEquals("EUDLCZKF", Traversal.preOrderTraversal(root));
+        String toString = Arrays
+                .toString(Traversal.preOrderTraversal(root).stream()
+                        .filter((x) -> x != null)
+                        .toArray());
+        assertEquals("[E, U, D, L, C, Z, K, F]", toString);
     }
 
     @Test

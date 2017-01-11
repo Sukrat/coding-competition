@@ -32,7 +32,7 @@ public class HuffmanTree {
 
         @Override
         public String toString() {
-            return letter != null ? letter : "";
+            return letter;
         }
     }
 

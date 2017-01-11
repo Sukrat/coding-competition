@@ -1,39 +1,44 @@
 package datastructures.trees;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Traversal {
 
-    public static String preOrderTraversal(IBinNode root) {
-        String toString = root.element().toString();
+    public static List<String> preOrderTraversal(IBinNode root) {
+        List<String> list = new ArrayList<>();
+        list.add(root.element().toString());
         if (root.hasLeft()) {
-            toString += preOrderTraversal(root.left());
+            list.addAll(preOrderTraversal(root.left()));
         }
         if (root.hasRight()) {
-            toString += preOrderTraversal(root.right());
+            list.addAll(preOrderTraversal(root.right()));
         }
-        return toString;
+
+        return list;
     }
 
-    public static String postOrderTraversal(IBinNode root) {
-        String toString = "";
+    public static List<String> postOrderTraversal(IBinNode root) {
+        List<String> list = new ArrayList<>();
         if (root.hasLeft()) {
-            toString += postOrderTraversal(root.left());
+            list.addAll(postOrderTraversal(root.left()));
         }
         if (root.hasRight()) {
-            toString += postOrderTraversal(root.right());
+            list.addAll(postOrderTraversal(root.right()));
         }
-        toString += root.element().toString();
-        return toString;
+        list.add(root.element().toString());
+        return list;
     }
 
-    public static String inOrderTraversal(IBinNode root) {
-        String toString = "";
+    public static List<String> inOrderTraversal(IBinNode root) {
+        List<String> list = new ArrayList<>();
         if (root.hasLeft()) {
-            toString += inOrderTraversal(root.left());
+            list.addAll(inOrderTraversal(root.left()));
         }
-        toString += root.element().toString();
+        list.add(root.element().toString());
         if (root.hasRight()) {
-            toString += inOrderTraversal(root.right());
+            list.addAll(inOrderTraversal(root.right()));
         }
-        return toString;
+        return list;
     }
 }

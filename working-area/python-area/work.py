@@ -1,32 +1,21 @@
-max_n = 15
-max_t = 30
-combinations = [[0 for i in range(0, max_t + 1)] for j in range(0, max_n + 1)]
-combinations[1] = [1 for i in range(0, max_t + 1)]
-for n in range(2, max_n + 1):
-    for t in range(0, max_t + 1):
-        temp = sum(combinations[n - 1][0:t + 1])
-        combinations[n][t] = temp
-# print(combinations)
+funs = dict()
+funs[0] = lambda x: "8" * int(x / 7)
+funs[1] = lambda x: "10" + funs[0](x - 8)
+funs[2] = lambda x: "1" + funs[0](x - 2)
+funs[3] = lambda x: "22" + funs[0](x - 10)
+funs[4] = lambda x: "20" + funs[0](x - 11)
+funs[5] = lambda x: "10" + funs[0](x - 12)
+funs[6] = lambda x: "6" + funs[0](x - 6)
 
-while True:
-    arr = list(map(lambda x: int(x), input().split(" ")))
-    if arr[0] == 0:
-        break
-    NO = arr[0]
-    RATINGS = arr[1:]
-    sum_of_combinations = 0
-    TOTAL_RATING = sum(RATINGS)
-    # exact same
-    sum_of_combinations += 1
-    # less than t
-    sum_of_combinations += sum(combinations[NO][0:TOTAL_RATING])
-    # equal to t
-    t = TOTAL_RATING
-    n = NO
-    for r in RATINGS:
-        N = n - 1
-        T = t - r + 1
-        sum_of_combinations += sum(combinations[N][T:t + 1])
-        t -= r
-        n -= 1
-    print(sum_of_combinations)
+
+no = input()
+for i in range(0, int(no)):
+    num = int(input())
+    max_num = ""
+    if num % 2 == 0:
+        max_num = "1" * int(num / 2)
+    else:
+        max_num = "7" + ("1" * int((num - 3) / 2))
+
+    min_num = funs[num % 7](num)
+    print("{0} {1}".format(min_num, max_num))
