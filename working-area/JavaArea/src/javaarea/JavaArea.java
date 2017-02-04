@@ -1,8 +1,11 @@
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
+import java.util.ArrayList;
+import java.util.Collections;
 public class JavaArea {
 
     public static class Solver {
@@ -13,7 +16,7 @@ public class JavaArea {
             read = scanner;
             write = printWriter;
         }
-
+        Collections.shu
         public void solve() {
             //solution
             ArrayList list = new ArrayList();
