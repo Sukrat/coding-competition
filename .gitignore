@@ -1,3 +1,7 @@
+#codejam
+*.in
+*.out
+
 #vscode
 .vscode/
 *.class

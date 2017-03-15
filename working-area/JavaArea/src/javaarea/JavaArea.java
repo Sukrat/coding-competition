@@ -1,43 +1,32 @@
+
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Scanner;
 
-import java.util.ArrayList;
-import java.util.Collections;
 public class JavaArea {
 
     public static class Solver {
-        private Scanner read;
-        private PrintWriter write;
 
-        public Solver(Scanner scanner, PrintWriter printWriter) {
-            read = scanner;
-            write = printWriter;
-        }
-        Collections.shu
         public void solve() {
             //solution
-            ArrayList list = new ArrayList();
-            list.add(1);list.add(2);list.add(3);
         }
     }
 
+    private static Scanner read;
+    private static PrintWriter write;
+
     public static void main(String[] args) {
         boolean isTest = true;
-        Scanner scanner;
-        PrintWriter printWriter;
+        isTest = false;
         if (isTest) {
-            scanner = new Scanner("");
-            printWriter = new PrintWriter(System.out);
+            read = new Scanner("1 50");
+            write = new PrintWriter(System.out);
         } else {
-            scanner = new Scanner(System.in);
-            printWriter = new PrintWriter(System.out);
+            read = new Scanner(System.in);
+            write = new PrintWriter(System.out);
         }
-        Solver solver = new Solver(scanner, printWriter);
+        Solver solver = new Solver();
         solver.solve();
-        scanner.close();
-        printWriter.close();
+        read.close();
+        write.close();
     }
 }
