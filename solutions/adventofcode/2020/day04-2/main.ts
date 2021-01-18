@@ -72,7 +72,7 @@ function checkNumberIsBetween(test: number, atleast: number, atmost: number): bo
 function checkHeight(test: string): boolean {
     const re = /^([0-9]+)(cm|in)$/
     const match = re.exec(test)
-    if (match != null) {
+    if (match !== null) {
         const height = parseInt(match[1])
         const metric = match[2]
         if (metric === "cm") {
