@@ -13,7 +13,7 @@ fetch("https://adventofcode.com/2020/day/10/input",
         console.log(answer)
     })
 
-function solve(str: string): number | undefined {
+function solve(str: string): number {
     const adapters = str.trim().split('\n')
         .map(m => parseInt(m))
 
