@@ -13,17 +13,6 @@ fetch("https://adventofcode.com/2020/day/4/input",
         console.log(answer)
     })
 
-const requiredFields = [
-    "byr",
-    "iyr",
-    "eyr",
-    "hgt",
-    "hcl",
-    "ecl",
-    "pid",
-    // "cid", // optional
-]
-
 function solve(str: string): number {
     let lines = str.split('\n')
 
@@ -50,5 +39,14 @@ function isValid(str: string): boolean {
         .map(m => m.split(':', 1)[0])
 
     const set = new Set<string>(passportFields)
-    return requiredFields.every(field => set.has(field))
+    return [
+        "byr",
+        "iyr",
+        "eyr",
+        "hgt",
+        "hcl",
+        "ecl",
+        "pid",
+        // "cid", // optional
+    ].every(field => set.has(field))
 }

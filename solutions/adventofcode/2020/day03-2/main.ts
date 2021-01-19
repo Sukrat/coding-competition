@@ -13,8 +13,6 @@ fetch("https://adventofcode.com/2020/day/3/input",
         console.log(answer)
     })
 
-const regex = /(\d+)-(\d+) (\w+): (\w+)/
-
 function solve(str: string): number {
     let rows = str.split('\n')
     const map = rows.map(m => m.split(''))

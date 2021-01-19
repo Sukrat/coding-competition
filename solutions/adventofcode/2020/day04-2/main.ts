@@ -13,17 +13,6 @@ fetch("https://adventofcode.com/2020/day/4/input",
         console.log(answer)
     })
 
-const requiredFields = [
-    "byr",
-    "iyr",
-    "eyr",
-    "hgt",
-    "hcl",
-    "ecl",
-    "pid",
-    // "cid", // optional
-]
-
 function solve(str: string): number {
     let lines = str.split('\n')
 
@@ -53,7 +42,16 @@ function isValid(str: string): boolean {
             map.set(field[0], field[1])
         })
 
-    const areFieldsPresent = requiredFields.every(field => map.has(field))
+    const areFieldsPresent = [
+        "byr",
+        "iyr",
+        "eyr",
+        "hgt",
+        "hcl",
+        "ecl",
+        "pid",
+        // "cid", // optional
+    ].every(field => map.has(field))
 
     return areFieldsPresent
         && checkNumberIsBetween(parseInt(map.get('byr') ?? ""), 1920, 2002)

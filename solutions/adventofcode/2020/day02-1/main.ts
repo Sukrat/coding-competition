@@ -14,11 +14,9 @@ fetch("https://adventofcode.com/2020/day/2/input",
         console.log(answer)
     })
 
-const regex = /(\d+)-(\d+) (\w+): (\w+)/
-
 function solve(entries: string[]): number {
     return entries.map(entry => {
-        let matches = regex.exec(entry)
+        let matches = /(\d+)-(\d+) (\w+): (\w+)/.exec(entry)
         if (matches === null) {
             return false
         }
