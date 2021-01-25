@@ -13,8 +13,8 @@ fetch("https://adventofcode.com/2020/day/17/input",
         console.log(answer)
     })
 
-type Point = [number, number, number]
-type Storage = boolean[][][]
+type Point = [number, number, number, number]
+type Storage = boolean[][][][]
 
 function solve(str: string): number {
     let grid = str.trim().split('\n')
@@ -26,7 +26,7 @@ function solve(str: string): number {
     grid.forEach((row, xI) => {
         row.forEach((cell, yI) => {
             if (cell === '#') {
-                let point: Point = [xI, yI, 0]
+                let point: Point = [xI, yI, 0, 0]
                 setState(point, cell === '#', storage)
                 activePoints.push(point)
             }
@@ -40,7 +40,7 @@ function solve(str: string): number {
         let pointsToSearch = Array.from(activePoints)
 
         while (pointsToSearch.length > 0) {
-            let point = pointsToSearch.pop() ?? [0, 0, 0]
+            let point = pointsToSearch.pop() ?? [0, 0, 0, 0]
             let state = getState(point, storage)
             let neighbours = getNeighbours(point)
 
@@ -51,7 +51,7 @@ function solve(str: string): number {
             }
 
             if (state) {
-                pointsToSearch = pointsToSearch.concat(neighbours)
+                pointsToSearch = pointsToSearch.concat(neighbours.filter(n => !getState(n, alreadySeen)))
             }
 
             let activeNeighboursCount = neighbours
@@ -74,28 +74,31 @@ function solve(str: string): number {
 }
 
 function setState(coord: Point, state: boolean, storage: Storage) {
-    const [x, y, z] = coord
+    const [x, y, z, w] = coord
     storage[x] = storage[x] ?? []
     storage[x][y] = storage[x][y] ?? []
-    storage[x][y][z] = state
+    storage[x][y][z] = storage[x][y][z] ?? []
+    storage[x][y][z][w] = state
 }
 
 function getState(coord: Point, storage: Storage): boolean {
-    const [x, y, z] = coord
-    if (storage[x] && storage[x][y] && storage[x][y][z]) {
+    const [x, y, z, w] = coord
+    if (storage[x] && storage[x][y] && storage[x][y][z] && storage[x][y][z][w]) {
         return true
     }
     return false
 }
 
 function getNeighbours(coord: Point) {
-    const [x, y, z] = coord
+    const [x, y, z, w] = coord
     const neighbours = [-1, 0, 1].flatMap(dX => {
         return [-1, 0, 1].flatMap(dY => {
-            return [-1, 0, 1].map(dZ => {
-                return [x + dX, y + dY, z + dZ] as Point
+            return [-1, 0, 1].flatMap(dZ => {
+                return [-1, 0, 1].map(dW => {
+                    return [x + dX, y + dY, z + dZ, w + dW] as Point
+                })
             })
         })
-    }).filter(([x2, y2, z2]) => !(x2 === x && y2 === y && z2 === z))
+    }).filter(([x2, y2, z2, w2]) => !(x2 === x && y2 === y && z2 === z && w2 === w))
     return neighbours
 }
