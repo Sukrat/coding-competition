@@ -15,7 +15,6 @@ fetch("https://adventofcode.com/2020/day/24/input",
 
 function solve(str: string): number {
     const instructions = str.trim().split('\n')
-    console.log(instructions);
     const level = 1
     const matrix = new Map([
         ['e', [2, 0]],
