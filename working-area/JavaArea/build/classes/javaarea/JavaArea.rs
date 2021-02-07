@@ -1,2 +1,0 @@
-JavaArea
-JavaArea$Solver
