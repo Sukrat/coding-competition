@@ -2,6 +2,7 @@ import * as fs from 'fs'
 import * as p from 'path'
 
 class Solution {
+    public readonly id: string
     public readonly platform: string
     public readonly question: string
     constructor(
@@ -9,6 +10,7 @@ class Solution {
     ) {
         const parts = path.trim().split('/')
         const [platform, question] = [parts.slice(1, 2), parts.slice(2, parts.length - 1)]
+        this.id = parts.slice(1, parts.length - 1).join('-')
         this.platform = platform[0]
         this.question = question.join(' ').replace(/-/g, ' ')
     }
